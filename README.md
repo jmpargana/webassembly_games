@@ -8,7 +8,7 @@ cloning this repository, moving to a game folder and executing this command:
 
 ```bash
 git clone https://github.com/jmpargana/webassembly_games.git
-cd *folder_name*
+cd folder_name
 cargo web start
 ```
 

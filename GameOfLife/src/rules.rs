@@ -1,7 +1,10 @@
 use std::{fmt, fs};
+use crate::canvas::Canvas;
+use stdweb::unstable::TryInto;
+
 
 /// An instance of the game of life board
-#[derive(Debug)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub struct GameOfLife {
     /// contains a matrix of boolean values
     cells: Vec<Vec<bool>>,
@@ -140,6 +143,17 @@ impl GameOfLife {
     /// ```
     pub fn set(&mut self, row: usize, col: usize) {
         self.cells[row][col] = !self.cells[row][col];
+    }
+
+    pub fn draw(&self, canvas: &Canvas) {
+        canvas.clear_all();
+        
+        for (i, row) in self.cells.iter().enumerate() {
+            for (j, &col) in row.iter().enumerate() {
+                let color = if col == true { "black" } else { "white" };
+                canvas.draw(i as u32, j as u32, color);
+            }
+        }
     }
 }
 

@@ -1,6 +1,9 @@
-use std::env;
+mod canvas;
+mod engine;
+mod rules;
+
+use engine::start;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    println!("{:?}", args);
+    start();
 }

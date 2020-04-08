@@ -1,1 +1,1 @@
-# connect4
+# Snake
